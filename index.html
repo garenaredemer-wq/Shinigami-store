@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shinigami Store - Premium</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:#0f0f0f;color:#fff;}
+.navbar{background:#000;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;position:sticky;top:0;z-index:100;border-bottom:2px solid #ff0000;}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:18px;color:#ff0000;}
+.logo .icon{width:36px;height:36px;background:#fff;border-radius:50%;display:grid;place-items:center;}
+.nav-right{display:flex;gap:18px;align-items:center;}
+.nav-right div{cursor:pointer;text-align:center;font-size:12px;position:relative;}
+.cart-count{background:#ff0000;color:#fff;border-radius:50%;padding:1px 6px;font-size:10px;position:absolute;top:-8px;right:-8px;}
+.banner{background:linear-gradient(135deg,#ff0000,#8b0000);padding:22px;text-align:center;}
+.product-card{background:#1a1a1a;border-radius:12px;display:flex;gap:12px;padding:12px;border:1px solid #2a2a2a;margin-bottom:14px;position:relative;}
+.p-img{width:110px;height:110px;background:#fff;border-radius:8px;display:grid;place-items:center;flex-shrink:0;}
+.p-details{flex:1;}
+.p-title{font-size:15px;font-weight:700;}
+.p-price{font-size:22px;font-weight:900;margin:6px 0;}
+.btn-row{display:flex;gap:8px;margin-top:10px;}
+.btn{padding:8px 14px;border-radius:6px;border:none;font-weight:700;cursor:pointer;font-size:13px;}
+.btn-cart{background:#2a2a2a;color:#fff;border:1px solid #444;}
+.btn-buy{background:#ff0000;color:#fff;flex:1;}
+.btn-continue{background:#00c853;color:#fff;width:100%;display:none;margin-top:8px;padding:10px;border-radius:6px;border:none;font-weight:700;}
+.badge{position:absolute;top:8px;left:8px;background:#ff0000;color:#fff;font-size:10px;padding:2px 6px;border-radius:4px;font-weight:700;z-index:2;}
+#cartPage{display:none;position:fixed;inset:0;background:#000;z-index:200;padding:18px;overflow:auto;}
+.pay-box{background:#111;padding:16px;border-radius:12px;border:1px dashed #ff0000;margin-top:20px;text-align:center;}
+.upi-btn{display:block;background:#fff;color:#000;padding:12px;border-radius:8px;font-weight:800;text-decoration:none;margin-top:12px;}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="navbar">
+  <div class="logo">
+    <div class="icon">
+      <svg viewBox="0 0 100 100" width="30" height="30"><circle cx="50" cy="50" r="48" fill="#E53945"/><path d="M50 8 C 25 28, 18 55, 32 75 C 28 66, 30 55, 50 32 C 70 55, 72 66, 68 75 C 82 55, 75 28, 50 8 Z M50 62 C 42 70, 38 78, 42 86 C 45 92, 55 92, 58 86 C 62 78, 58 70, 50 62 Z" fill="white"/></svg>
+    </div>
+    SHINIGAMI STORE
+  </div>
+  <div class="nav-right">
+    <div onclick="alert('Account Coming Soon')"><i class="fa fa-user"></i><br>Account</div>
+    <div onclick="openCart()"><span id="cCount" class="cart-count" style="display:none">0</span><i class="fa fa-shopping-cart"></i><br>Cart</div>
+  </div>
+</div>
+
+<div class="banner"><h1>PREMIUM RED STORE</h1><p>Original Shinigami Products</p></div>
+
+<div style="padding:12px;max-width:900px;margin:auto">
+  <!-- Product 1 -->
+  <div class="product-card">
+    <div class="badge">BESTSELLER</div>
+    <div class="p-img">
+      <svg viewBox="0 0 100 100" width="80" height="80"><circle cx="50" cy="50" r="48" fill="#E53945"/><path d="M50 8 C 25 28, 18 55, 32 75 C 28 66, 30 55, 50 32 C 70 55, 72 66, 68 75 C 82 55, 75 28, 50 8 Z M50 62 C 42 70, 38 78, 42 86 C 45 92, 55 92, 58 86 C 62 78, 58 70, 50 62 Z" fill="white"/></svg>
+    </div>
+    <div class="p-details">
+      <div class="p-title">Shinigami Engine Key Generate Bot Link</div>
+      <div style="color:#00ff88;font-size:12px;margin:4px 0">★ 4.9 | 3,241 Ratings | Original</div>
+      <div class="p-price">₹700</div>
+      <div style="font-size:11px;color:#aaa">Instant Delivery on WhatsApp</div>
+      <div class="btn-row">
+        <button class="btn btn-cart" onclick="addToCart('Shinigami Engine Key Generate Bot Link',700)">ADD TO CART</button>
+        <button class="btn btn-buy" onclick="buyNow('Shinigami Engine Key Generate Bot Link',700)">BUY NOW</button>
+      </div>
+      <button class="btn-continue" id="cont-700">CONTINUE TO WHATSAPP</button>
+    </div>
+  </div>
+
+  <!-- Product 2 -->
+  <div class="product-card">
+    <div class="p-img"><i class="fa fa-coins" style="font-size:50px;color:#ffaa00"></i></div>
+    <div class="p-details">
+      <div class="p-title">Coin Generate Trick File</div>
+      <div style="color:#00ff88;font-size:12px;margin:4px 0">★ 4.7 | 1,112 Ratings</div>
+      <div class="p-price">₹350</div>
+      <div style="font-size:11px;color:#aaa">Lifetime Trick File</div>
+      <div class="btn-row">
+        <button class="btn btn-cart" onclick="addToCart('Coin Generate Trick File',350)">ADD TO CART</button>
+        <button class="btn btn-buy" onclick="buyNow('Coin Generate Trick File',350)">BUY NOW</button>
+      </div>
+      <button class="btn-continue" id="cont-350">CONTINUE TO WHATSAPP</button>
+    </div>
+  </div>
+</div>
+
+<div id="cartPage">
+  <h2 style="display:flex;justify-content:space-between">Your Cart <span onclick="closeCart()" style="cursor:pointer">✕</span></h2>
+  <div id="cartItems" style="margin-top:15px"></div>
+  <div id="cartTotal" style="font-weight:800;margin-top:10px;font-size:20px"></div>
+  <div class="pay-box" id="payBox" style="display:none">
+    <h3 style="color:#ff0000">Complete Payment</h3>
+    <p id="payText" style="margin-top:8px;color:#ccc;font-size:14px"></p>
+    <a id="upiLink" class="upi-btn" href="#">PAY WITH UPI</a>
+    <button id="afterPayBtn" class="btn" style="background:#00c853;color:#fff;width:100%;margin-top:12px;display:none" onclick="goWhatsApp()">I HAVE PAID - CONTINUE</button>
+  </div>
+</div>
+
+<script>
+let cart=[];let currentProduct=null;let currentAmount=0;
+const UPI_ID="6000149307@ptsbi";const WHATSAPP_NUM="916001471307";
+function addToCart(n,p){cart.push({name:n,price:p});updateCount();alert('Cart me add ho gaya');}
+function updateCount(){let c=document.getElementById('cCount');if(cart.length>0){c.style.display='block';c.innerText=cart.length;}else{c.style.display='none';}}
+function openCart(){document.getElementById('cartPage').style.display='block';render();}
+function closeCart(){document.getElementById('cartPage').style.display='none';}
+function render(){let h='';let t=0;cart.forEach((it,i)=>{t+=it.price;h+=`<div style="background:#1a1a1a;padding:12px;border-radius:8px;display:flex;justify-content:space-between;margin-bottom:8px"><div><b>${it.name}</b><br>₹${it.price}</div><div onclick="cart.splice(${i},1);updateCount();render()" style="color:#ff0000;cursor:pointer">Remove</div></div>`});if(cart.length==0)h='<p style="color:#777">Cart Khali Hai</p>';document.getElementById('cartItems').innerHTML=h;document.getElementById('cartTotal').innerText=cart.length>0?'Total: ₹'+t:'';let pb=document.getElementById('payBox');if(t>0){pb.style.display='block';currentAmount=t;currentProduct=cart.map(c=>c.name).join(', ');setup(currentProduct,t);}else pb.style.display='none';}
+function buyNow(n,p){cart=[{name:n,price:p}];updateCount();openCart();}
+function setup(name,amt){document.getElementById('payText').innerText=name+" - ₹"+amt;let url=`upi://pay?pa=${UPI_ID}&pn=ShinigamiStore&am=${amt}&cu=INR&tn=Payment for ${encodeURIComponent(name)}`;let l=document.getElementById('upiLink');l.href=url;l.innerText=`PAY ₹${amt} WITH UPI`;l.onclick=()=>{setTimeout(()=>{document.getElementById('afterPayBtn').style.display='block';document.getElementById('cont-700').style.display='block';document.getElementById('cont-350').style.display='block';},2000);};}
+document.getElementById('cont-700').onclick=()=>{currentProduct='Shinigami Engine Key Generate Bot Link';currentAmount=700;goWhatsApp();}
+document.getElementById('cont-350').onclick=()=>{currentProduct='Coin Generate Trick File';currentAmount=350;goWhatsApp();}
+function goWhatsApp(){let m=`Hello I'm interested%0AProduct: ${currentProduct}%0APrice: ₹${currentAmount}%0AI have completed payment to ${UPI_ID}%0APlease send file/link`;window.location.href=`https://wa.me/${WHATSAPP_NUM}?text=${m}`;}
+</script>
+</body>
+</html>
